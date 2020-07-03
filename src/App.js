@@ -3,6 +3,8 @@ import useScript from './hooks/useScript';
 import './App.css';
 
 function App() {
+  useScript('./utils/index.js');
+
   return (
     <div className="App">
       <canvas id="canvas"></canvas>
