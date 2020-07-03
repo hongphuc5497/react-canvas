@@ -1,9 +1,16 @@
-import React from 'react';
-import useScript from './hooks/useScript';
-import './App.css';
+import React, { useEffect } from 'react';
+import { init } from './utils';
 
 function App() {
-  useScript('./utils/index.js');
+  useEffect(() => {
+    if (window) {
+      window.addEventListener('load', init)
+    }
+
+    return () => {
+      window.removeEventListener('load', init);
+    }
+  }, [])
 
   return (
     <div className="App">
